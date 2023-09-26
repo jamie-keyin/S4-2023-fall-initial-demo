@@ -25,7 +25,7 @@ public class DivisionTest {
 
         Player u11Player = new Player();
         Calendar u11PlayerBirthday = Calendar.getInstance();
-        playerBirthday.set(2013, 1, 15);
+        u11PlayerBirthday.set(2016, 1, 15);
         u11Player.setBirthday(u11PlayerBirthday);
         u11Player.setFirstName("u11Player");
         u11Player.setLastName("u11Player");
