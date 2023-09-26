@@ -3,27 +3,33 @@ package com.keyin;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.Calendar;
+
 public class DivisionTest {
 
     @Test
     public void testIsPlayerEligible() {
         Player u9Player = new Player();
-        u9Player.setAge(7);
+        Calendar playerBirthday = Calendar.getInstance();
+        playerBirthday.set(2015, 1, 15);
+        u9Player.setBirthday(playerBirthday);
         u9Player.setFirstName("u9Player");
         u9Player.setLastName("u9Player");
 
-        Division divisionUnderTest = new Division();
-        divisionUnderTest.setName("U9");
-        divisionUnderTest.setStartAge(7);
-        divisionUnderTest.setEndAge(9);
+        Division divisionU9UnderTest = new Division();
+        divisionU9UnderTest.setName("U9"); // 2015, 2016
+        divisionU9UnderTest.addEligibleBirthYear(2015);
+        divisionU9UnderTest.addEligibleBirthYear(2016);
 
-        Assertions.assertTrue(divisionUnderTest.isPlayerEligible(u9Player));
+        Assertions.assertTrue(divisionU9UnderTest.isPlayerEligible(u9Player));
 
         Player u11Player = new Player();
-        u9Player.setAge(10);
-        u9Player.setFirstName("u11Player");
-        u9Player.setLastName("u11Player");
+        Calendar u11PlayerBirthday = Calendar.getInstance();
+        playerBirthday.set(2013, 1, 15);
+        u11Player.setBirthday(u11PlayerBirthday);
+        u11Player.setFirstName("u11Player");
+        u11Player.setLastName("u11Player");
 
-        Assertions.assertFalse(divisionUnderTest.isPlayerEligible(u11Player));
+        Assertions.assertFalse(divisionU9UnderTest.isPlayerEligible(u11Player));
     }
 }

@@ -1,16 +1,23 @@
 package com.keyin;
 
+import java.util.Calendar;
+import java.util.Date;
+
 public class Player {
-    private int age;
+    private Calendar birthday;
     private String firstName;
     private String lastName;
 
-    public int getAge() {
-        return age;
+    public int getBirthYear() {
+        return birthday.get(Calendar.YEAR);
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public Calendar getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Calendar birthday) {
+        this.birthday = birthday;
     }
 
     public String getFirstName() {
@@ -32,7 +39,7 @@ public class Player {
     @Override
     public String toString() {
         return "Player{" +
-                "age=" + age +
+                "birthday=" + birthday +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 '}';

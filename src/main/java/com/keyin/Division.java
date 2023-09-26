@@ -1,24 +1,20 @@
 package com.keyin;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Division {
-    private int startAge;
-    private int endAge;
+
+    private List<Integer> eligibleBirthYears;
+
     private String name;
 
-    public int getStartAge() {
-        return startAge;
-    }
+    public void addEligibleBirthYear(int year) {
+        if (eligibleBirthYears == null) {
+            eligibleBirthYears = new ArrayList<Integer>();
+        }
 
-    public void setStartAge(int startAge) {
-        this.startAge = startAge;
-    }
-
-    public int getEndAge() {
-        return endAge;
-    }
-
-    public void setEndAge(int endAge) {
-        this.endAge = endAge;
+        eligibleBirthYears.add(year);
     }
 
     public String getName() {
@@ -32,13 +28,12 @@ public class Division {
     @Override
     public String toString() {
         return "Division{" +
-                "startAge=" + startAge +
-                ", endAge=" + endAge +
+                "eligibleBirthYears=" + eligibleBirthYears +
                 ", name='" + name + '\'' +
                 '}';
     }
 
     public boolean isPlayerEligible(Player player) {
-        return player.getAge() >= startAge && player.getAge() < endAge;
+        return eligibleBirthYears.contains(player.getBirthYear());
     }
 }
