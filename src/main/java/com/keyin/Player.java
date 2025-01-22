@@ -2,6 +2,7 @@ package com.keyin;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Objects;
 
 public class Player {
     private Calendar birthday;
@@ -52,5 +53,17 @@ public class Player {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || this.getClass() != o.getClass()) return false;
+        Player player = (Player) o;
+        return Objects.equals(birthday, player.birthday) && Objects.equals(firstName, player.firstName) && Objects.equals(lastName, player.lastName) && Objects.equals(shootingHand, player.shootingHand);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(birthday, firstName, lastName, shootingHand);
     }
 }
