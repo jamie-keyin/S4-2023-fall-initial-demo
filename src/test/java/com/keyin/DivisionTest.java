@@ -18,8 +18,8 @@ public class DivisionTest {
 
         Division divisionU9UnderTest = new Division();
         divisionU9UnderTest.setName("U9"); // 2015, 2016
+        divisionU9UnderTest.addEligibleBirthYear(2014);
         divisionU9UnderTest.addEligibleBirthYear(2015);
-        divisionU9UnderTest.addEligibleBirthYear(2016);
 
         Assertions.assertTrue(divisionU9UnderTest.isPlayerEligible(u9Player));
 
