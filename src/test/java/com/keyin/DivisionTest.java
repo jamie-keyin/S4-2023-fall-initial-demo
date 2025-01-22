@@ -30,6 +30,6 @@ public class DivisionTest {
         u11Player.setFirstName("u11Player");
         u11Player.setLastName("u11Player");
 
-        Assertions.assertTrue(divisionU9UnderTest.isPlayerEligible(u11Player));
+        Assertions.assertFalse(divisionU9UnderTest.isPlayerEligible(u11Player));
     }
 }
